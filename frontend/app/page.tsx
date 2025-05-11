@@ -19,11 +19,11 @@ export default function App() {
     data: session, 
 } = authClient.useSession();
 
-  useEffect(() => {
-    if (!session) {
-      router.push("/login"); 
-    }
-  }, [session, router]);
+  // useEffect(() => {
+  //   if (!session) {
+  //     router.push("/login"); 
+  //   }
+  // }, [session, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,6 +127,7 @@ export default function App() {
           )}
         </form>
       </section>
+      {/* {session?.user.name} */}
     </main>
   );
 }
