@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { useState } from "react";
-import { signIn } from "@/lib/auth-client";
+import { authClient, signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -41,10 +41,10 @@ export default function SignIn() {
                   )}
                   disabled={loading}
                   onClick={async () => {
-                    await signIn.social(
+                    await authClient.signIn.social(
                     {
                       provider: "google",
-                      callbackURL: "/"
+                      callbackURL: "/dashboard"
                     },
                     {
                       onRequest: (ctx) => {
