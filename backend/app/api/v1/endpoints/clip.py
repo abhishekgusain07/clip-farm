@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
 from fastapi.responses import FileResponse
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -71,12 +70,6 @@ async def create_clip(
         
         # Get clip file size
         clip_size = FileManagerService.get_file_size(clip_path)
-        
-        # Schedule cleanup after 1 hour
-        background_tasks.add_task(
-            FileManagerService.cleanup_file, 
-            clip_path
-        )
         
         return ClipResponse(
             message="Clip created successfully",

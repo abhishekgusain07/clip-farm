@@ -31,15 +31,15 @@ export default function App() {
     setError("");
 
     try {
-      const clipResponse = await fetch("http://localhost:3001/api/clip", {
+      const clipResponse = await fetch("http://localhost:8000/api/v1/clip", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           url,
-          startTime,
-          endTime,
+          "start_time":startTime,
+          "end_time": endTime,
         }),
       });
 

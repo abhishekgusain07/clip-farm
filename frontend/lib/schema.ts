@@ -45,3 +45,12 @@ export const verification = pgTable("verification", {
  createdAt: timestamp('created_at'),
  updatedAt: timestamp('updated_at')
 				});
+
+export const videoDownload = pgTable("video_downloads", {
+    videoId: text('video_id').primaryKey(),
+    filePath: text('file_path').notNull(),
+    fileSize: integer('file_size'),
+    duration: integer('duration'),
+    downloadedAt: timestamp('downloaded_at').notNull().defaultNow(),
+    isActive: boolean('is_active').notNull().default(true)
+});

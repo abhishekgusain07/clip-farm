@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     # Application
     debug: bool = False
     secret_key: str = "your-secret-key-change-in-production"
-    allowed_hosts: List[str] = ["*"]
+    allowed_hosts: List[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
     
     # File storage
     uploads_dir: str = "uploads"
